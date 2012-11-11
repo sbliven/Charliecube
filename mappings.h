@@ -10,68 +10,83 @@
 \******************************************************************************/
 #define P1B 0x00
 #define P1C 0x00
-#define P1D 0x04 //2
+#define P1D 0x01 //0
 
 #define P2B 0x00
 #define P2C 0x00
-#define P2D 0x08//3
+#define P2D 0x02 //1
 
 #define P3B 0x00
 #define P3C 0x00
-#define P3D 0x10//4
+#define P3D 0x04 //2
 
 #define P4B 0x00
 #define P4C 0x00
-#define P4D 0x20//5
+#define P4D 0x08//3
 
 #define P5B 0x00
 #define P5C 0x00
-#define P5D 0x40//6
+#define P5D 0x10//4
 
 #define P6B 0x00
 #define P6C 0x00
-#define P6D 0x80//7
+#define P6D 0x20//5
 
-#define P7B 0x01//8
+#define P7B 0x00
 #define P7C 0x00
-#define P7D 0x00
+#define P7D 0x40//6
 
-#define P8B 0x02//9
+#define P8B 0x00
 #define P8C 0x00
-#define P8D 0x00
+#define P8D 0x80//7
 
-#define P9B 0x04//10
+#define P9B 0x01//8
 #define P9C 0x00
 #define P9D 0x00
 
-#define P10B 0x08//11
+#define P10B 0x02//9
 #define P10C 0x00
 #define P10D 0x00
 
-#define P11B 0x10//12
+#define P11B 0x04//10
 #define P11C 0x00
 #define P11D 0x00
 
-#define P12B 0x20//13
+#define P12B 0x08//11
 #define P12C 0x00
 #define P12D 0x00
 
-#define P13B 0x00
-#define P13C 0x01//A0
+#define P13B 0x10//12
+#define P13C 0x00
 #define P13D 0x00
 
-#define P14B 0x00
-#define P14C 0x02//A1
+#define P14B 0x20//13
+#define P14C 0x00
 #define P14D 0x00
 
 #define P15B 0x00
-#define P15C 0x04//A2
+#define P15C 0x01//A0
 #define P15D 0x00
 
 #define P16B 0x00
-#define P16C 0x08//A3
+#define P16C 0x02//A1
 #define P16D 0x00
 
+#define P17B 0x00
+#define P17C 0x04//A2
+#define P17D 0x00
+
+#define P18B 0x00
+#define P18C 0x08//A3
+#define P18D 0x00
+
+#define P19B 0x00
+#define P19C 0x08//A4
+#define P19D 0x00
+
+#define P20B 0x00
+#define P20C 0x08//A5
+#define P20D 0x00
 
 
 /* LED group mappings
@@ -281,28 +296,28 @@
 //Quicker to modify, but harder to understand
 #define PINS(c,x,y,z) _PIN_##x##y(c,x,y,z)
 
-#define _PIN_11(c,x,y,z) _SPIRE(c,z, 4, 8,12,16)
-#define _PIN_12(c,x,y,z) _SPIRE(c,z, 4, 7,11,13)
-#define _PIN_13(c,x,y,z) _SPIRE(c,z, 4, 6,10,15)
-#define _PIN_14(c,x,y,z) _SPIRE(c,z, 4, 5, 9,14)
-#define _PIN_21(c,x,y,z) _SPIRE(c,z, 3, 8,11,15)
-#define _PIN_22(c,x,y,z) _SPIRE(c,z, 3, 7,12,14)
-#define _PIN_23(c,x,y,z) _SPIRE(c,z, 3, 6, 9,16)
-#define _PIN_24(c,x,y,z) _SPIRE(c,z, 3, 5,10,13)
-#define _PIN_31(c,x,y,z) _SPIRE(c,z, 2, 8,10,14)
-#define _PIN_32(c,x,y,z) _SPIRE(c,z, 2, 7, 9,15)
-#define _PIN_33(c,x,y,z) _SPIRE(c,z, 2, 6,12,13)
-#define _PIN_34(c,x,y,z) _SPIRE(c,z, 2, 5,11,16)
-#define _PIN_41(c,x,y,z) _SPIRE(c,z, 1, 8, 9,13)
-#define _PIN_42(c,x,y,z) _SPIRE(c,z, 1, 7,10,16)
-#define _PIN_43(c,x,y,z) _SPIRE(c,z, 1, 6,11,14)
-#define _PIN_44(c,x,y,z) _SPIRE(c,z, 1, 5,12,15)
+#define _PIN_11(c,x,y,z) _SPIRE(c,z, 4, 8,12,16,20)
+#define _PIN_12(c,x,y,z) _SPIRE(c,z, 3, 8,11,15,19)
+#define _PIN_13(c,x,y,z) _SPIRE(c,z, 2, 8,10,14,18)
+#define _PIN_14(c,x,y,z) _SPIRE(c,z, 1, 8, 9,13,17)
+#define _PIN_21(c,x,y,z) _SPIRE(c,z, 4, 7,11,13,18)
+#define _PIN_22(c,x,y,z) _SPIRE(c,z, 3, 7,12,14,17)
+#define _PIN_23(c,x,y,z) _SPIRE(c,z, 2, 7, 9,15,20)
+#define _PIN_24(c,x,y,z) _SPIRE(c,z, 1, 7,10,16,19)
+#define _PIN_31(c,x,y,z) _SPIRE(c,z, 4, 6,10,15,17)
+#define _PIN_32(c,x,y,z) _SPIRE(c,z, 3, 6, 9,16,18)
+#define _PIN_33(c,x,y,z) _SPIRE(c,z, 2, 6,12,13,19)
+#define _PIN_34(c,x,y,z) _SPIRE(c,z, 1, 6,11,14,20)
+#define _PIN_41(c,x,y,z) _SPIRE(c,z, 4, 5, 9,14,19)
+#define _PIN_42(c,x,y,z) _SPIRE(c,z, 3, 5,10,13,20)
+#define _PIN_43(c,x,y,z) _SPIRE(c,z, 2, 5,11,16,17)
+#define _PIN_44(c,x,y,z) _SPIRE(c,z, 1, 5,12,15,18)
 
-#define _SPIRE(c,z,bcrg,crgb,rgbc,gbcr) _SPIRE_##z(c,bcrg,crgb,rgbc,gbcr)
-#define _SPIRE_1(c,bcrg,crgb,rgbc,gbcr) _SPIRE_##c(rgbc,gbcr,bcrg),crgb
-#define _SPIRE_2(c,bcrg,crgb,rgbc,gbcr) _SPIRE_##c(crgb,rgbc,gbcr),bcrg
-#define _SPIRE_3(c,bcrg,crgb,rgbc,gbcr) _SPIRE_##c(bcrg,crgb,rgbc),gbcr
-#define _SPIRE_4(c,bcrg,crgb,rgbc,gbcr) _SPIRE_##c(gbcr,bcrg,crgb),rgbc
+#define _SPIRE(c,z,bcxg,gbcx,cxgb,xgbc,red) _SPIRE_##z(c,bcxg,gbcx,cxgb,xgbc,red)
+#define _SPIRE_1(c,bcxg,gbcx,cxgb,xgbc,red) _SPIRE_##c(red,gbcx,bcxg),cxgb
+#define _SPIRE_2(c,bcxg,gbcx,cxgb,xgbc,red) _SPIRE_##c(red,xgbc,gbcx),bcxg
+#define _SPIRE_3(c,bcxg,gbcx,cxgb,xgbc,red) _SPIRE_##c(red,cxgb,xgbc),gbcx
+#define _SPIRE_4(c,bcxg,gbcx,cxgb,xgbc,red) _SPIRE_##c(red,bcxg,cxgb),xgbc
 #define _SPIRE_r(r,g,b) r
 #define _SPIRE_g(r,g,b) g
 #define _SPIRE_b(r,g,b) b
