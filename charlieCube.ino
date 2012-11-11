@@ -9,15 +9,51 @@ void setup() {
   // how many secconds until the animation is told to progress
   animationMax = 10;
 }
-void loop() {
-  planarSpin();
-  fountian();
-  trifade();
-  shiftSquares();
-  tunnel();
-  chaseTheDot();
-  planarFlop3D();
+void loop() { 
+  ledTest1();
+  ledTest();
+//  planarSpin();
+//  fountian();
+//  trifade();
+//  shiftSquares();
+//  tunnel();
+//  chaseTheDot();
+//  planarFlop3D();
   
+}
+
+void ledTest1() {
+  continuePattern = true;
+  int animationSpeed = 50;
+  while(continuePattern) {
+    drawLed(red,255,3,3,4);
+    drawLed(green,255,3,1,1);
+    drawLed(blue,255,1,1,1);
+    drawLed(purple,255,3,4,3);
+
+    flushBuffer();
+    clearBuffer();
+    delay(animationSpeed);
+  }
+}
+
+void ledTest() {
+  continuePattern = true;
+  int animationSpeed = 50;
+  color = red;
+  while(continuePattern) {
+    for(int z=4;z>=1;z--) {
+      for(int x=3;x<=4;x++) {
+        for(int y=1;y<=4;y++) {
+          drawLed(color,255,x,y,z);
+          flushBuffer();
+          clearBuffer();
+          delay(animationSpeed);
+        }
+      }
+    }
+    color = nextPrimaryColor(color);
+  }
 }
 
 /********************************* PLANAR SPIN ********************************\
