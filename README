@@ -5,9 +5,15 @@ By Asher Glick
 
 This library is able to drive a 4x4x4 RGB cube from an Arduino microcontroller.
 
-The construction of the cube involves charlieplexing the 192 LEDs (4x4x4x3) and
-uses 16 pins. The construction is rather complex. Details are available at
+The construction of the cube involves charlieplexing the 192 LEDs (4x4x4x3).
+The construction is rather complex. Details are available at
 http://aglick.com/charliecube.html
+
+This specific branch of the project uses a non-standard mapping with 20 pins
+rather than the usual 16. This mapping increases the structural integrity of
+the cube by allowing adjacent spires to be soldered together at the top of the
+cube, and also allows different resistors to be used for the red LEDs (my cheap
+diodes have different voltage drops).
 
 All code is released under the BSD license (see file LICENSE for details).
 
