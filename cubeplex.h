@@ -393,9 +393,20 @@ void flushBuffer() {
 | This is the interrupt function to turn on one led. After it turns that one   |
 | on it will 
 \******************************************************************************/
+#if NUM_WIRES == 20 && defined P20B
+// include 20 wires
+byte pinsB[] = {P1B,P2B,P3B,P4B,P5B,P6B,P7B,P8B,P9B,P10B,P11B,P12B,P13B,P14B,P15B,P16B,P17B,P18B,P19B,P20B};
+byte pinsC[] = {P1C,P2C,P3C,P4C,P5C,P6C,P7C,P8C,P9C,P10C,P11C,P12C,P13C,P14C,P15C,P16C,P17C,P18C,P19C,P20C};
+byte pinsD[] = {P1D,P2D,P3D,P4D,P5D,P6D,P7D,P8D,P9D,P10D,P11D,P12D,P13D,P14D,P15D,P16D,P17D,P18D,P19D,P20D};
+#elif NUM_WIRES == 16 && defined P16B
+// only 16 wires
 byte pinsB[] = {P1B,P2B,P3B,P4B,P5B,P6B,P7B,P8B,P9B,P10B,P11B,P12B,P13B,P14B,P15B,P16B};
 byte pinsC[] = {P1C,P2C,P3C,P4C,P5C,P6C,P7C,P8C,P9C,P10C,P11C,P12C,P13C,P14C,P15C,P16C};
 byte pinsD[] = {P1D,P2D,P3D,P4D,P5D,P6D,P7D,P8D,P9D,P10D,P11D,P12D,P13D,P14D,P15D,P16D};
+#else
+#error Unsupported number of wires
+#endif
+
 #ifndef PWMMAX
   #define PWMMMAX 8
 #endif
