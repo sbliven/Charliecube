@@ -59,84 +59,84 @@
 // Number of wires used. Either 16 or 20
 #define NUM_WIRES 20
 
-#define P1B 0x00
+#define P1B 0x20 //13
 #define P1C 0x00
-#define P1D 0x01 //0
+#define P1D 0x00
 
-#define P2B 0x00
+#define P2B 0x10 //12
 #define P2C 0x00
-#define P2D 0x02 //1
+#define P2D 0x00
 
-#define P3B 0x00
+#define P3B 0x08 //11
 #define P3C 0x00
-#define P3D 0x04 //2
+#define P3D 0x00
 
-#define P4B 0x00
+#define P4B 0x04 //10
 #define P4C 0x00
-#define P4D 0x08 //3
+#define P4D 0x00
 
-#define P5B 0x00
+#define P5B 0x02 //9
 #define P5C 0x00
-#define P5D 0x10 //4
+#define P5D 0x00
 
-#define P6B 0x00
+#define P6B 0x01 //8
 #define P6C 0x00
-#define P6D 0x20 //5
+#define P6D 0x00
 
 #define P7B 0x00
 #define P7C 0x00
-#define P7D 0x40 //6
+#define P7D 0x80 //7
 
 #define P8B 0x00
 #define P8C 0x00
-#define P8D 0x80 //7
+#define P8D 0x40 //6
 
-#define P9B 0x01 //8
-#define P9C 0x00
+#define P9B 0x00
+#define P9C 0x02 //A1
 #define P9D 0x00
 
-#define P10B 0x02 //9
-#define P10C 0x00
+#define P10B 0x00
+#define P10C 0x01 //A0
 #define P10D 0x00
 
-#define P11B 0x04 //10
+#define P11B 0x00
 #define P11C 0x00
-#define P11D 0x00
+#define P11D 0x01 //0
 
-#define P12B 0x08 //11
+#define P12B 0x00
 #define P12C 0x00
-#define P12D 0x00
+#define P12D 0x02 //1
 
-#define P13B 0x10 //12
+#define P13B 0x00
 #define P13C 0x00
-#define P13D 0x00
+#define P13D 0x04 //2
 
-#define P14B 0x20 //13
+#define P14B 0x00
 #define P14C 0x00
-#define P14D 0x00
+#define P14D 0x10 //4
 
 #define P15B 0x00
-#define P15C 0x01 //A0
-#define P15D 0x00
+#define P15C 0x00
+#define P15D 0x20 //5
 
 #define P16B 0x00
-#define P16C 0x02 //A1
-#define P16D 0x00
+#define P16C 0x00
+#define P16D 0x08 //3
 
 #define P17B 0x00
-#define P17C 0x04 //A2
+#define P17C 0x20 //A5
 #define P17D 0x00
 
 #define P18B 0x00
-#define P18C 0x08 //A3
+#define P18C 0x10 //A4
 #define P18D 0x00
 
 #define P19B 0x00
-#define P19C 0x10 //A4
+#define P19C 0x08 //A3
 #define P19D 0x00
 
 #define P20B 0x00
-#define P20C 0x20 //A5
+#define P20C 0x04 //A2
 #define P20D 0x00
 
 
