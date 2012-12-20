@@ -150,36 +150,38 @@
 
 //System 1: Manually define pins for all 192 LEDs
 
-#define b111 4,12
+#define ERROR_LED 1,1 //b411 //Used for LEDs on unconnected pins
+
+#define b111 ERROR_LED //4,12
 #define b112 8,4
 #define b113 16,8
-#define b114 12,16
-#define b121 3,11
+#define b114 ERROR_LED //12,16
+#define b121 ERROR_LED //3,11
 #define b122 8,3
 #define b123 15,8
-#define b124 11,15
+#define b124 ERROR_LED //11,15
 #define b131 2,10
 #define b132 8,2
 #define b133 14,8
 #define b134 10,14
-#define b141 1,9
-#define b142 8,1
+#define b141 ERROR_LED //1,9
+#define b142 ERROR_LED //8,1
 #define b143 13,8
 #define b144 9,13
-#define b211 4,11
+#define b211 ERROR_LED //4,11
 #define b212 7,4
 #define b213 13,7
-#define b214 11,13
-#define b221 3,12
+#define b214 ERROR_LED //11,13
+#define b221 ERROR_LED //3,12
 #define b222 7,3
 #define b223 14,7
-#define b224 12,14
+#define b224 ERROR_LED //12,14
 #define b231 2,9
 #define b232 7,2
 #define b233 15,7
 #define b234 9,15
-#define b241 1,10
-#define b242 7,1
+#define b241 ERROR_LED //1,10
+#define b242 ERROR_LED //7,1
 #define b243 16,7
 #define b244 10,16
 #define b311 4,10
@@ -190,14 +192,14 @@
 #define b322 6,3
 #define b323 16,6
 #define b324 9,16
-#define b331 2,12
+#define b331 ERROR_LED //2,12
 #define b332 6,2
 #define b333 13,6
-#define b334 12,13
-#define b341 1,11
-#define b342 6,1
+#define b334 ERROR_LED //12,13
+#define b341 ERROR_LED //1,11
+#define b342 ERROR_LED //6,1
 #define b343 14,6
-#define b344 11,14
+#define b344 ERROR_LED //11,14
 #define b411 4,9
 #define b412 5,4
 #define b413 14,5
@@ -206,47 +208,47 @@
 #define b422 5,3
 #define b423 13,5
 #define b424 10,13
-#define b431 2,11
+#define b431 ERROR_LED //2,11
 #define b432 5,2
 #define b433 16,5
-#define b434 11,16
-#define b441 1,12
-#define b442 5,1
+#define b434 ERROR_LED //11,16
+#define b441 ERROR_LED //1,12
+#define b442 ERROR_LED //5,1
 #define b443 15,5
-#define b444 12,15
+#define b444 ERROR_LED //12,15
 
-#define g111 8,12
+#define g111 ERROR_LED //8,12
 #define g112 16,4
-#define g113 12,8
+#define g113 ERROR_LED //12,8
 #define g114 4,16
-#define g121 8,11
+#define g121 ERROR_LED //8,11
 #define g122 15,3
-#define g123 11,8
+#define g123 ERROR_LED //11,8
 #define g124 3,15
 #define g131 8,10
 #define g132 14,2
 #define g133 10,8
 #define g134 2,14
 #define g141 8,9
-#define g142 13,1
+#define g142 ERROR_LED //13,1
 #define g143 9,8
-#define g144 1,13
-#define g211 7,11
+#define g144 ERROR_LED //1,13
+#define g211 ERROR_LED //7,11
 #define g212 13,4
-#define g213 11,7
+#define g213 ERROR_LED //11,7
 #define g214 4,13
-#define g221 7,12
+#define g221 ERROR_LED //7,12
 #define g222 14,3
-#define g223 12,7
+#define g223 ERROR_LED //12,7
 #define g224 3,14
 #define g231 7,9
 #define g232 15,2
 #define g233 9,7
 #define g234 2,15
 #define g241 7,10
-#define g242 16,1
+#define g242 ERROR_LED //16,1
 #define g243 10,7
-#define g244 1,16
+#define g244 ERROR_LED //1,16
 #define g311 6,10
 #define g312 15,4
 #define g313 10,6
@@ -255,14 +257,14 @@
 #define g322 16,3
 #define g323 9,6
 #define g324 3,16
-#define g331 6,12
+#define g331 ERROR_LED //6,12
 #define g332 13,2
-#define g333 12,6
+#define g333 ERROR_LED //12,6
 #define g334 2,13
-#define g341 6,11
-#define g342 14,1
-#define g343 11,6
-#define g344 1,14
+#define g341 ERROR_LED //6,11
+#define g342 ERROR_LED //14,1
+#define g343 ERROR_LED //11,6
+#define g344 ERROR_LED //1,14
 #define g411 5,9
 #define g412 14,4
 #define g413 9,5
@@ -271,20 +273,20 @@
 #define g422 13,3
 #define g423 10,5
 #define g424 3,13
-#define g431 5,11
+#define g431 ERROR_LED //5,11
 #define g432 16,2
-#define g433 11,5
+#define g433 ERROR_LED //11,5
 #define g434 2,16
-#define g441 5,12
-#define g442 15,1
-#define g443 12,5
-#define g444 1,15
+#define g441 ERROR_LED //5,12
+#define g442 ERROR_LED //15,1
+#define g443 ERROR_LED //12,5
+#define g444 ERROR_LED //1,15
 
-#define r111 20,12
+#define r111 ERROR_LED //20,12
 #define r112 20,4
 #define r113 20,8
 #define r114 20,16
-#define r121 19,11
+#define r121 ERROR_LED //19,11
 #define r122 19,3
 #define r123 19,8
 #define r124 19,15
@@ -293,14 +295,14 @@
 #define r133 18,8
 #define r134 18,14
 #define r141 17,9
-#define r142 17,1
+#define r142 ERROR_LED //17,1
 #define r143 17,8
 #define r144 17,13
-#define r211 18,11
+#define r211 ERROR_LED //18,11
 #define r212 18,4
 #define r213 18,7
 #define r214 18,13
-#define r221 17,12
+#define r221 ERROR_LED //17,12
 #define r222 17,3
 #define r223 17,7
 #define r224 17,14
@@ -309,7 +311,7 @@
 #define r233 20,7
 #define r234 20,15
 #define r241 19,10
-#define r242 19,1
+#define r242 ERROR_LED //19,1
 #define r243 19,7
 #define r244 19,16
 #define r311 17,10
@@ -320,12 +322,12 @@
 #define r322 18,3
 #define r323 18,6
 #define r324 18,16
-#define r331 19,12
+#define r331 ERROR_LED //19,12
 #define r332 19,2
 #define r333 19,6
 #define r334 19,13
-#define r341 20,11
-#define r342 20,1
+#define r341 ERROR_LED //20,11
+#define r342 ERROR_LED //20,1
 #define r343 20,6
 #define r344 20,14
 #define r411 19,9
@@ -336,12 +338,12 @@
 #define r422 20,3
 #define r423 20,5
 #define r424 20,13
-#define r431 17,11
+#define r431 ERROR_LED //17,11
 #define r432 17,2
 #define r433 17,5
 #define r434 17,16
-#define r441 18,12
-#define r442 18,1
+#define r441 ERROR_LED //18,12
+#define r442 ERROR_LED //18,1
 #define r443 18,5
 #define r444 18,15
 
