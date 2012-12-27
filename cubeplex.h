@@ -410,7 +410,7 @@ byte pinsB[] = {P1B,P2B,P3B,P4B,P5B,P6B,P7B,P8B,P9B,P10B,P11B,P12B,P13B,P14B,P15
 byte pinsC[] = {P1C,P2C,P3C,P4C,P5C,P6C,P7C,P8C,P9C,P10C,P11C,P12C,P13C,P14C,P15C,P16C};
 byte pinsD[] = {P1D,P2D,P3D,P4D,P5D,P6D,P7D,P8D,P9D,P10D,P11D,P12D,P13D,P14D,P15D,P16D};
 #else
-#error Unsupported number of wires
+#error "Unsupported number of wires"
 #endif
 
 // the interrupt function to display the leds
@@ -426,7 +426,7 @@ ISR(TIMER2_OVF_vect) {
   PORTD = 0x00;
   // Turn LED on for first count iterations through list
   if (count > pwmm){
-    // set currently lit pins as outputs, all others as high impetance
+    // set currently lit pins as outputs, all others as high impedance
     DDRB = pinsB[pin1] | pinsB[pin2];
     DDRC = pinsC[pin1] | pinsC[pin2];
     DDRD = pinsD[pin1] | pinsD[pin2];
