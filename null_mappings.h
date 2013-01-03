@@ -1,0 +1,273 @@
+/* Since only a single bit is set for each wire, almost all of these macros should be 0.
+ * To keep mappings.h more concise, define everything here to be 0, then redefine the
+ * interesting ones later
+ */
+
+#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega2560__)
+
+#define P1B 0x00
+#define P1C 0x00
+#define P1D 0x00
+
+#define P2B 0x00
+#define P2C 0x00
+#define P2D 0x00
+
+#define P3B 0x00
+#define P3C 0x00
+#define P3D 0x00
+
+#define P4B 0x00
+#define P4C 0x00
+#define P4D 0x00
+
+#define P5B 0x00
+#define P5C 0x00
+#define P5D 0x00
+
+#define P6B 0x00
+#define P6C 0x00
+#define P6D 0x00
+
+#define P7B 0x00
+#define P7C 0x00
+#define P7D 0x00
+
+#define P8B 0x00
+#define P8C 0x00
+#define P8D 0x00
+
+#define P9B 0x00
+#define P9C 0x00
+#define P9D 0x00
+
+#define P10B 0x00
+#define P10C 0x00
+#define P10D 0x00
+
+#define P11B 0x00
+#define P11C 0x00
+#define P11D 0x00
+
+#define P12B 0x00
+#define P12C 0x00
+#define P12D 0x00
+
+#define P13B 0x00
+#define P13C 0x00
+#define P13D 0x00
+
+#define P14B 0x00
+#define P14C 0x00
+#define P14D 0x00
+
+#define P15B 0x00
+#define P15C 0x00
+#define P15D 0x00
+
+#define P16B 0x00
+#define P16C 0x00
+#define P16D 0x00
+
+#define P17B 0x00
+#define P17C 0x00
+#define P17D 0x00
+
+#define P18B 0x00
+#define P18C 0x00
+#define P18D 0x00
+
+#define P19B 0x00
+#define P19C 0x00
+#define P19D 0x00
+
+#define P20B 0x00
+#define P20C 0x00
+#define P20D 0x00
+
+#else
+#error "Unsupported CPU"
+#endif
+#if defined(__AVR_ATmega2560__)
+
+#define P1A 0x00
+#define P1E 0x00
+#define P1F 0x00
+#define P1G 0x00
+#define P1H 0x00
+#define P1J 0x00
+#define P1K 0x00
+#define P1L 0x00
+
+#define P2A 0x00
+#define P2E 0x00
+#define P2F 0x00
+#define P2G 0x00
+#define P2H 0x00
+#define P2J 0x00
+#define P2K 0x00
+#define P2L 0x00
+
+#define P3A 0x00
+#define P3E 0x00
+#define P3F 0x00
+#define P3G 0x00
+#define P3H 0x00
+#define P3J 0x00
+#define P3K 0x00
+#define P3L 0x00
+
+#define P4A 0x00
+#define P4E 0x00
+#define P4F 0x00
+#define P4G 0x00
+#define P4H 0x00
+#define P4J 0x00
+#define P4K 0x00
+#define P4L 0x00
+
+#define P5A 0x00
+#define P5E 0x00
+#define P5F 0x00
+#define P5G 0x00
+#define P5H 0x00
+#define P5J 0x00
+#define P5K 0x00
+#define P5L 0x00
+
+#define P6A 0x00
+#define P6E 0x00
+#define P6F 0x00
+#define P6G 0x00
+#define P6H 0x00
+#define P6J 0x00
+#define P6K 0x00
+#define P6L 0x00
+
+#define P7A 0x00
+#define P7E 0x00
+#define P7F 0x00
+#define P7G 0x00
+#define P7H 0x00
+#define P7J 0x00
+#define P7K 0x00
+#define P7L 0x00
+
+#define P8A 0x00
+#define P8E 0x00
+#define P8F 0x00
+#define P8G 0x00
+#define P8H 0x00
+#define P8J 0x00
+#define P8K 0x00
+#define P8L 0x00
+
+#define P9A 0x00
+#define P9E 0x00
+#define P9F 0x00
+#define P9G 0x00
+#define P9H 0x00
+#define P9J 0x00
+#define P9K 0x00
+#define P9L 0x00
+
+#define P10A 0x00
+#define P10E 0x00
+#define P10F 0x00
+#define P10G 0x00
+#define P10H 0x00
+#define P10J 0x00
+#define P10K 0x00
+#define P10L 0x00
+
+#define P11A 0x00
+#define P11E 0x00
+#define P11F 0x00
+#define P11G 0x00
+#define P11H 0x00
+#define P11J 0x00
+#define P11K 0x00
+#define P11L 0x00
+
+#define P12A 0x00
+#define P12E 0x00
+#define P12F 0x00
+#define P12G 0x00
+#define P12H 0x00
+#define P12J 0x00
+#define P12K 0x00
+#define P12L 0x00
+
+#define P13A 0x00
+#define P13E 0x00
+#define P13F 0x00
+#define P13G 0x00
+#define P13H 0x00
+#define P13J 0x00
+#define P13K 0x00
+#define P13L 0x00
+
+#define P14A 0x00
+#define P14E 0x00
+#define P14F 0x00
+#define P14G 0x00
+#define P14H 0x00
+#define P14J 0x00
+#define P14K 0x00
+#define P14L 0x00
+
+#define P15A 0x00
+#define P15E 0x00
+#define P15F 0x00
+#define P15G 0x00
+#define P15H 0x00
+#define P15J 0x00
+#define P15K 0x00
+#define P15L 0x00
+
+#define P16A 0x00
+#define P16E 0x00
+#define P16F 0x00
+#define P16G 0x00
+#define P16H 0x00
+#define P16J 0x00
+#define P16K 0x00
+#define P16L 0x00
+
+#define P17A 0x00
+#define P17E 0x00
+#define P17F 0x00
+#define P17G 0x00
+#define P17H 0x00
+#define P17J 0x00
+#define P17K 0x00
+#define P17L 0x00
+
+#define P18A 0x00
+#define P18E 0x00
+#define P18F 0x00
+#define P18G 0x00
+#define P18H 0x00
+#define P18J 0x00
+#define P18K 0x00
+#define P18L 0x00
+
+#define P19A 0x00
+#define P19E 0x00
+#define P19F 0x00
+#define P19G 0x00
+#define P19H 0x00
+#define P19J 0x00
+#define P19K 0x00
+#define P19L 0x00
+
+#define P20A 0x00
+#define P20E 0x00
+#define P20F 0x00
+#define P20G 0x00
+#define P20H 0x00
+#define P20J 0x00
+#define P20K 0x00
+#define P20L 0x00
+
+#endif //__AVR_ATmega2560__

@@ -401,17 +401,30 @@ void flushBuffer() {
 \******************************************************************************/
 #if NUM_WIRES == 20 && defined P20B
 // include 20 wires
-byte pinsB[] = {P1B,P2B,P3B,P4B,P5B,P6B,P7B,P8B,P9B,P10B,P11B,P12B,P13B,P14B,P15B,P16B,P17B,P18B,P19B,P20B};
-byte pinsC[] = {P1C,P2C,P3C,P4C,P5C,P6C,P7C,P8C,P9C,P10C,P11C,P12C,P13C,P14C,P15C,P16C,P17C,P18C,P19C,P20C};
-byte pinsD[] = {P1D,P2D,P3D,P4D,P5D,P6D,P7D,P8D,P9D,P10D,P11D,P12D,P13D,P14D,P15D,P16D,P17D,P18D,P19D,P20D};
+#define PINS_ARRAY(port) {P1##port,P2##port,P3##port,P4##port,P5##port,P6##port,P7##port,P8##port,P9##port,P10##port,P11##port,P12##port,P13##port,P14##port,P15##port,P16##port,P17##port,P18##port,P19##port,P20##port}
+
 #elif NUM_WIRES == 16 && defined P16B
 // only 16 wires
-byte pinsB[] = {P1B,P2B,P3B,P4B,P5B,P6B,P7B,P8B,P9B,P10B,P11B,P12B,P13B,P14B,P15B,P16B};
-byte pinsC[] = {P1C,P2C,P3C,P4C,P5C,P6C,P7C,P8C,P9C,P10C,P11C,P12C,P13C,P14C,P15C,P16C};
-byte pinsD[] = {P1D,P2D,P3D,P4D,P5D,P6D,P7D,P8D,P9D,P10D,P11D,P12D,P13D,P14D,P15D,P16D};
+#define PINS_ARRAY(port) {P1##port,P2##port,P3##port,P4##port,P5##port,P6##port,P7##port,P8##port,P9##port,P10##port,P11##port,P12##port,P13##port,P14##port,P15##port,P16##port}
 #else
 #error "Unsupported number of wires"
 #endif
+
+byte pinsB[] = PINS_ARRAY(B);
+byte pinsC[] = PINS_ARRAY(C);
+byte pinsD[] = PINS_ARRAY(D);
+
+#ifdef __AVR_ATmega2560__
+// Define additional outputs on Arduino Mega
+byte pinsA[] = PINS_ARRAY(A);
+byte pinsE[] = PINS_ARRAY(E);
+byte pinsF[] = PINS_ARRAY(F);
+byte pinsG[] = PINS_ARRAY(G);
+byte pinsH[] = PINS_ARRAY(H);
+byte pinsJ[] = PINS_ARRAY(J);
+byte pinsK[] = PINS_ARRAY(K);
+byte pinsL[] = PINS_ARRAY(L);
+#endif //__AVR_ATmega2560__
 
 // the interrupt function to display the leds
 ISR(TIMER2_OVF_vect) {
@@ -424,17 +437,51 @@ ISR(TIMER2_OVF_vect) {
   PORTB = 0x00;
   PORTC = 0x00;
   PORTD = 0x00;
+  
+#ifdef __AVR_ATmega2560__
+  PORTA = 0x00;
+  PORTE = 0x00;
+  PORTF = 0x00;
+  PORTG = 0x00;
+  PORTH = 0x00;
+  PORTJ = 0x00;
+  PORTK = 0x00;
+  PORTL = 0x00;
+#endif //__AVR_ATmega2560__
+
   // Turn LED on for first count iterations through list
   if (count > pwmm){
     // set currently lit pins as outputs, all others as high impedance
     DDRB = pinsB[pin1] | pinsB[pin2];
     DDRC = pinsC[pin1] | pinsC[pin2];
     DDRD = pinsD[pin1] | pinsD[pin2];
+#ifdef __AVR_ATmega2560__
+    DDRA = pinsA[pin1] | pinsA[pin2];
+    DDRE = pinsE[pin1] | pinsE[pin2];
+    DDRF = pinsF[pin1] | pinsF[pin2];
+    DDRG = pinsG[pin1] | pinsG[pin2];
+    DDRH = pinsH[pin1] | pinsH[pin2];
+    DDRJ = pinsJ[pin1] | pinsJ[pin2];
+    DDRK = pinsK[pin1] | pinsK[pin2];
+    DDRL = pinsL[pin1] | pinsL[pin2];
+#endif //__AVR_ATmega2560__
+
+    
     // drive pin1 high and pin2 low
     PORTB = pinsB[pin1];
     PORTC = pinsC[pin1];
     PORTD = pinsD[pin1];
-    
+ #ifdef __AVR_ATmega2560__
+    PORTA = pinsA[pin1];
+    PORTE = pinsE[pin1];
+    PORTF = pinsF[pin1];
+    PORTG = pinsG[pin1];
+    PORTH = pinsH[pin1];
+    PORTJ = pinsJ[pin1];
+    PORTK = pinsK[pin1];
+    PORTL = pinsL[pin1];
+#endif //__AVR_ATmega2560__
+
   }
   _cube_current_frame = _cube_current_frame->next;
   if (_cube_current_frame == _cube__frame+1){

@@ -13,20 +13,32 @@
 void setup() {
 }
 
-
-#if NUM_WIRES == 20 && defined P20B
+#if NUM_WIRES == 20
 // include 20 wires
-byte pinsB[] = {P1B,P2B,P3B,P4B,P5B,P6B,P7B,P8B,P9B,P10B,P11B,P12B,P13B,P14B,P15B,P16B,P17B,P18B,P19B,P20B};
-byte pinsC[] = {P1C,P2C,P3C,P4C,P5C,P6C,P7C,P8C,P9C,P10C,P11C,P12C,P13C,P14C,P15C,P16C,P17C,P18C,P19C,P20C};
-byte pinsD[] = {P1D,P2D,P3D,P4D,P5D,P6D,P7D,P8D,P9D,P10D,P11D,P12D,P13D,P14D,P15D,P16D,P17D,P18D,P19D,P20D};
-#elif NUM_WIRES == 16 && defined P16B
+#define PINS_ARRAY(port) {P1##port,P2##port,P3##port,P4##port,P5##port,P6##port,P7##port,P8##port,P9##port,P10##port,P11##port,P12##port,P13##port,P14##port,P15##port,P16##port,P17##port,P18##port,P19##port,P20##port}
+
+#elif NUM_WIRES == 16
 // only 16 wires
-byte pinsB[] = {P1B,P2B,P3B,P4B,P5B,P6B,P7B,P8B,P9B,P10B,P11B,P12B,P13B,P14B,P15B,P16B};
-byte pinsC[] = {P1C,P2C,P3C,P4C,P5C,P6C,P7C,P8C,P9C,P10C,P11C,P12C,P13C,P14C,P15C,P16C};
-byte pinsD[] = {P1D,P2D,P3D,P4D,P5D,P6D,P7D,P8D,P9D,P10D,P11D,P12D,P13D,P14D,P15D,P16D};
+#define PINS_ARRAY(port) {P1##port,P2##port,P3##port,P4##port,P5##port,P6##port,P7##port,P8##port,P9##port,P10##port,P11##port,P12##port,P13##port,P14##port,P15##port,P16##port}
 #else
-#error Unsupported number of wires
+#error "Unsupported number of wires"
 #endif
+
+byte pinsB[] = PINS_ARRAY(B);
+byte pinsC[] = PINS_ARRAY(C);
+byte pinsD[] = PINS_ARRAY(D);
+
+#ifdef __AVR_ATmega2560__
+// Define additional outputs on Arduino Mega
+byte pinsA[] = PINS_ARRAY(A);
+byte pinsE[] = PINS_ARRAY(E);
+byte pinsF[] = PINS_ARRAY(F);
+byte pinsG[] = PINS_ARRAY(G);
+byte pinsH[] = PINS_ARRAY(H);
+byte pinsJ[] = PINS_ARRAY(J);
+byte pinsK[] = PINS_ARRAY(K);
+byte pinsL[] = PINS_ARRAY(L);
+#endif //__AVR_ATmega2560__
 
 
 /* Enable a single LED at a time
@@ -34,12 +46,36 @@ byte pinsD[] = {P1D,P2D,P3D,P4D,P5D,P6D,P7D,P8D,P9D,P10D,P11D,P12D,P13D,P14D,P15
  * wires are 1-20
  */
 void enableLED(int wire1,int wire2) {
+    // set currently lit pins as outputs, all others as high impedance
     DDRB = pinsB[wire1-1] | pinsB[wire2-1];
     DDRC = pinsC[wire1-1] | pinsC[wire2-1];
     DDRD = pinsD[wire1-1] | pinsD[wire2-1];
+#ifdef __AVR_ATmega2560__
+    DDRA = pinsA[wire1-1] | pinsA[wire2-1];
+    DDRE = pinsE[wire1-1] | pinsE[wire2-1];
+    DDRF = pinsF[wire1-1] | pinsF[wire2-1];
+    DDRG = pinsG[wire1-1] | pinsG[wire2-1];
+    DDRH = pinsH[wire1-1] | pinsH[wire2-1];
+    DDRJ = pinsJ[wire1-1] | pinsJ[wire2-1];
+    DDRK = pinsK[wire1-1] | pinsK[wire2-1];
+    DDRL = pinsL[wire1-1] | pinsL[wire2-1];
+#endif //__AVR_ATmega2560__
+
+    
+    // drive pin1 high and pin2 low
     PORTB = pinsB[wire1-1];
     PORTC = pinsC[wire1-1];
     PORTD = pinsD[wire1-1];
+#ifdef __AVR_ATmega2560__
+    PORTA = pinsA[wire1-1];
+    PORTE = pinsE[wire1-1];
+    PORTF = pinsF[wire1-1];
+    PORTG = pinsG[wire1-1];
+    PORTH = pinsH[wire1-1];
+    PORTJ = pinsJ[wire1-1];
+    PORTK = pinsK[wire1-1];
+    PORTL = pinsL[wire1-1];
+#endif //__AVR_ATmega2560__
 }
 #define ENABLE_LED_MACRO(wires) enableLED(wires)
 
@@ -51,7 +87,7 @@ void enableLED(int wire1,int wire2) {
   
   
 void loop() {
-  const int waitTime = 50;//time to display each LED
+  const int waitTime = 100;//time to display each LED
   
   //enableLED(17,9);
   // Turn on each LED sequentially
