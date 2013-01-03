@@ -53,46 +53,34 @@ int color = red;
 void setup() {
   initCube();
   
-  // how many secconds until the animation is told to progress
+  // how many seconds until the animation is told to progress
   animationMax = 10;
 }
 void loop() { 
-  ledTest1();
-  ledTest();
-//  planarSpin();
-//  fountian();
-//  trifade();
-//  shiftSquares();
-//  tunnel();
-//  chaseTheDot();
-//  planarFlop3D();
-  
+//  cycleLeds();
+//  allWhite();
+
+  planarSpin();
+  fountian();
+  trifade();
+  shiftSquares();
+  tunnel();
+  chaseTheDot();
+  planarFlop3D();
 }
 
-void ledTest1() {
+/* Cycles through each LED sequentially by color.
+ * Useful for debugging wiring malfunctions
+ */
+void cycleLeds() {
   continuePattern = true;
-  int animationSpeed = 50;
-  while(continuePattern) {
-    drawLed(red,255,3,3,4);
-    drawLed(green,255,3,1,1);
-    drawLed(blue,255,1,1,1);
-    drawLed(purple,255,3,4,3);
-
-    flushBuffer();
-    clearBuffer();
-    delay(animationSpeed);
-  }
-}
-
-void ledTest() {
-  continuePattern = true;
-  int animationSpeed = 50;
+  int animationSpeed = 10;
   color = red;
   while(continuePattern) {
-    for(int z=4;z>=1;z--) {
-      for(int x=3;x<=4;x++) {
-        for(int y=1;y<=4;y++) {
-          drawLed(color,255,x,y,z);
+    for(int z=3;z>=0;z--) {
+      for(int x=0;x<4;x++) {
+        for(int y=0;y<4;y++) {
+          drawLed(color,x,y,z);
           flushBuffer();
           clearBuffer();
           delay(animationSpeed);
@@ -102,6 +90,22 @@ void ledTest() {
     color = nextPrimaryColor(color);
   }
 }
+
+/* Turns on all LEDs. Good for testing that everything is wired correctly
+ */
+void allWhite() {
+  continuePattern = true;
+  int animationSpeed = 500;
+  color = red;
+  while(continuePattern) {
+    color = white;
+    drawBox(color,0,0,0,3,3,3);
+    flushBuffer();
+    clearBuffer();
+    delay(animationSpeed);
+  }
+}
+
 
 /********************************* PLANAR SPIN ********************************\
 | A plane of light spins around the virtical center of the cube and changes    |
