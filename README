@@ -4,6 +4,7 @@ By Asher Glick
 ==INTRODUCTION==
 
 This library is able to drive a 4x4x4 RGB cube from an Arduino microcontroller.
+It currently supports the Arduino Uno (using an ATmega328P) and Mega (ATmega2560).
 
 The construction of the cube involves charlieplexing the 192 LEDs (4x4x4x3).
 The construction is rather complex. Details are available at
@@ -29,16 +30,16 @@ Each wire is specified by 3 macros, eg PxxB PxxC PxxD, which give the settings
 for the PORTB/C/D registers (see
 http://www.arduino.cc/en/Reference/PortManipulation for info on PORT
 registers). For example, pin 2 of the arduino is the third bit of PORTD, so to
-use pin 2 for wire 1 would use the following definitions in mappings.h:
+use pin 2 for wire 1 would use the following definition in mappings.h:
 
-    #define P1B 0x00
-    #define P1C 0x00
-    #define P1D 0x04 //2
+    #define P1D 0x04 //digital pin 2
 
 Second, the wires must be mapped to individual LEDs. This is done through the WIRES
 macro, which returns the anode wire and the cathod wire for a given LED. The easiest
 way to change these mappings is to change the b111 to r444 macros ("System 1"). Each
-macro is named based on the color (b/g/r) and x, y, and z coordinates (1-4). For example, the following line defines the blue LED at the origin to light up when the 4th pin is driven HIGH and the 8th pin is driven LOW:
+macro is named based on the color (b/g/r) and x, y, and z coordinates (1-4). For example,
+the following line defines the blue LED at the origin to light up when the 4th pin is
+driven HIGH and the 8th pin is driven LOW:
 
     #define b111 4,8
 
@@ -54,12 +55,13 @@ patterns can reduce the code size by 4-5K.
 
 The cubeplex library allocates two buffers for storing LED state. These should
 require about 1157 bytes of SRAM, plus string literals, etc. Tests show the
-current version leaves about 600 bytes free.
+current version leaves about 600 bytes free (ATmega328).
 
 ==Credits==
 
 Original Code by Asher Glick.
 
 Wire to LED mapping by Spencer Bliven.
+ATmega2560 port by Spencer Bliven.
 
 
